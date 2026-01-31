@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kalai Vani | Web Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #7c3aed;
+      --secondary: #ec4899;
+      --accent: #fbbf24;
+      --bg: linear-gradient(135deg, #7c3aed, #ec4899);
+      --card-bg: #ffffff;
+      --text-dark: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #f0f4f8, #e2e8f0);
+      color: var(--text-dark);
+    }
+
+    /* Header with animation */
+    header {
+      text-align: center;
+      padding: 100px 20px;
+      background: var(--bg);
+      color: white;
+      clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: rgba(255,255,255,0.1);
+      top: -50%;
+      left: -50%;
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
+    }
+
+    header h1 {
+      font-size: 3rem;
+      letter-spacing: 6px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+      animation: fadeInDown 1.5s ease forwards;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 12px;
+      font-weight: 300;
+      animation: fadeInUp 1.5s ease forwards;
+    }
+
+    @keyframes fadeInDown {
+      0% {opacity:0; transform: translateY(-30px);}
+      100% {opacity:1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInUp {
+      0% {opacity:0; transform: translateY(30px);}
+      100% {opacity:1; transform: translateY(0);}
+    }
+
+    nav {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      margin: 0 15px;
+      transition: all 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      transform: scale(1.1);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    /* Card with hover glow */
+    .card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 40px 30px;
+      margin: 30px 0;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(124,58,237,0.3), 0 20px 40px rgba(236,72,153,0.3);
+    }
+
+    h2 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      border-left: 6px solid var(--secondary);
+      padding-left: 14px;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* Skills badges hover animation */
+    .skills span {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 10px 20px;
+      margin: 6px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .skills span:hover {
+      transform: scale(1.2) rotate(-5deg);
+      box-shadow: 0 10px 25px rgba(124,58,237,0.4), 0 8px 20px rgba(236,72,153,0.4);
+      cursor: default;
+    }
+
+    /* Projects Timeline Style */
+    .projects ul {
+      position: relative;
+      margin-left: 30px;
+      padding-left: 20px;
+      line-height: 1.8;
+    }
+
+    .projects ul::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 5px;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+
+    .projects li {
+      margin-bottom: 20px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .projects li::before {
+      content: '';
+      position: absolute;
+      left: -11px;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(251,191,36,0.6);
+    }
+
+    /* Links buttons */
+    .links a {
+      display: inline-block;
+      margin-right: 20px;
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 12px;
+      transition: all 0.3s;
+      background: rgba(124,58,237,0.1);
+    }
+
+    .links a:hover {
+      background: var(--primary);
+      color: white;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #fff;
+      background: var(--bg);
+      margin-top: 50px;
+      font-size: 14px;
+    }
+
+    .section-divider {
+      height: 5px;
+      width: 70px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+      border-radius: 2px;
+      margin: 15px 0 30px 0;
+    }
+
+    /* Fade-in animation on scroll */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeIn 1s forwards;
+    }
+
+    .fade-in.delay-1 { animation-delay: 0.2s;}
+    .fade-in.delay-2 { animation-delay: 0.4s;}
+    .fade-in.delay-3 { animation-delay: 0.6s;}
+    .fade-in.delay-4 { animation-delay: 0.8s;}
+    .fade-in.delay-5 { animation-delay: 1s;}
+
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Kalaivani V</h1>
+    <p>Web Developer</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <!-- ABOUT -->
+    <div class="card about fade-in delay-1" id="about">
+      <h2>About Me</h2>
+      <div class="section-divider"></div>
+      <p>
+        Self-independent, reliable and friendly individual who works hard to achieve goals.
+        Highly adaptable and well-organized, with strong interest in learning the latest
+        web and software technologies. Passionate about building responsive and user-friendly
+        web applications.
+      </p>
+    </div>
+
+    <!-- PERSONAL DETAILS -->
+    <div class="card details fade-in delay-2">
+      <h2>Personal Details</h2>
+      <div class="section-divider"></div>
+      <p>📞 9952774965</p>
+      <p>📧 kalaivani221993.com</p>
+      <p>📍 4, New Vilangudi, Madurai – 625018</p>
+      <p>🌐 Languages: Tamil, English</p>
+      <p>🎓 GPA: 8.2</p>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="card fade-in delay-3" id="skills">
+      <h2>Technical Skills</h2>
+      <div class="section-divider"></div>
+      <div class="skills">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>React JS</span>
+        <span>PHP</span>
+        <span>MySQL</span>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="card fade-in delay-4">
+      <h2>Education</h2>
+      <div class="section-divider"></div>
+      <p><b>Bachelor of Information Technology</b></p>
+      <p>Latha Madhavan Engineering College (2010 – 2014)</p>
+      <p>GPA: 8.2</p>
+    </div>
+
+    <!-- CERTIFICATION -->
+    <div class="card fade-in delay-5">
+      <h2>Certification</h2>
+      <div class="section-divider"></div>
+      <p>✔ Web Developer – TN Skills</p>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="card projects fade-in delay-1" id="projects">
+      <h2>Projects</h2>
+      <div class="section-divider"></div>
+      <ul>
+        <li><b>Capital Garden</b> – Responsive online plant nursery shopping website using HTML & CSS with clean layout, attractive UI, and user-friendly navigation.</li>
+        <li>Responsive Portfolio Website – Built with HTML & CSS showcasing projects and skills.</li>
+        <li>Basic CRUD Application – Developed with PHP & MySQL to manage data efficiently.</li>
+        <li>React JS Practice – Created components and used hooks for frontend functionality.</li>
+      </ul>
+    </div>
+
+    <!-- LINKS -->
+    <div class="card links fade-in delay-2" id="contact">
+      <h2>Professional Links</h2>
+      <div class="section-divider"></div>
+      <a href="https://github.com/kalaikumar9319" target="_blank">GitHub</a>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 Kalai Vani | Web Developer
+  </footer>
+
+</body>
+</html>
